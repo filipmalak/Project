@@ -8,7 +8,7 @@ public class CompanyCustomerConfiguration : IEntityTypeConfiguration<CompanyCust
 {
     public void Configure(EntityTypeBuilder<CompanyCustomer> builder)
     {
-        builder.HasKey(c => c.Id);
+//        builder.HasKey(c => c.Id);
         builder.Property(c => c.CompanyName).IsRequired().HasMaxLength(200);
         builder.Property(c => c.Krs).IsRequired().HasMaxLength(10);
         builder.HasIndex(c => c.Krs).IsUnique();

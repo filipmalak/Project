@@ -24,7 +24,7 @@ namespace Projekt.Controller;
                 .AnyAsync(c => c.CustomerId == contract.CustomerId && c.SoftwareId == contract.SoftwareId && !c.IsPaid);
             if (existingContract)
             {
-                return BadRequest("Customer already has an active contract for this software.");
+                return BadRequest("Klient już ma aktywny kontrakt");
             }
 
             var highestDiscount = contract.Software.Discounts
@@ -45,7 +45,7 @@ namespace Projekt.Controller;
                 .AnyAsync(c => c.CustomerId == contract.CustomerId && c.IsPaid);
             if (hasPreviousContract)
             {
-                contract.DiscountedPrice -= contract.DiscountedPrice * 0.05m;  // 5% discount for returning customers
+                contract.DiscountedPrice -= contract.DiscountedPrice * 0.05m;  // 5% znizki
             }
 
             contract.EndDate = contract.StartDate.AddDays(30);

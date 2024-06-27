@@ -13,13 +13,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped<IRevenueService, RevenueService>();
 builder.Services.AddHttpClient();
 builder.Services.AddControllers();
-builder.Services.AddAuthentication("Bearer")
-    .AddJwtBearer("Bearer", options =>
-    {
-        options.Authority = "https://your-auth-server";
-        options.RequireHttpsMetadata = false;
-        options.Audience = "your-api-name";
-    });
+builder.Services.AddAuthentication("Bearer");
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("AdminPolicy", policy =>
